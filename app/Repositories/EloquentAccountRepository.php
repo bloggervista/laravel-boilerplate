@@ -136,6 +136,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         }
 
         /** @var \Illuminate\Support\Collection $permissions */
+        dd(session()->all());
         $permissions = session()->get('permissions');
 
         if ($permissions->isEmpty()) {

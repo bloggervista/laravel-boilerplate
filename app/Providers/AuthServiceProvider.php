@@ -32,10 +32,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $accountRepository = $this->app->make(AccountRepository::class);
-
+        $accountRepository = $this->app->make(\App\Repositories\EloquentAccountRepository::class);
         foreach (config('permissions') as $key => $permissions) {
             Gate::define($key, function (User $user) use ($accountRepository, $key) {
+                asdf;asdfas;
                 return $accountRepository->hasPermission($user, $key);
             });
         }
